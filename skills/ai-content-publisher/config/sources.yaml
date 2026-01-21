@@ -1,0 +1,205 @@
+# RSS源配置
+
+# AI公司官方博客
+ai_companies:
+  - name: "OpenAI Blog"
+    url: "https://openai.com/blog/rss.xml"
+    enabled: true
+    weight: 1.0
+
+  - name: "Anthropic News"
+    url: "https://www.anthropic.com/news"
+    enabled: false  # RSS失效，暂时禁用
+    weight: 1.0
+
+  - name: "Google DeepMind"
+    url: "https://deepmind.google/discover/blog/"
+    enabled: false  # RSS失效，暂时禁用
+    weight: 0.9
+
+  - name: "Meta AI Blog"
+    url: "https://ai.meta.com/blog/rss/"
+    enabled: false  # 被墙，禁用
+    weight: 0.8
+
+  - name: "Hugging Face Blog"
+    url: "https://huggingface.co/blog/feed.xml"
+    enabled: false  # 被墙，禁用
+    weight: 1.0
+
+  - name: "Mistral AI"
+    url: "https://mistral.ai/news/rss/"
+    enabled: false  # RSS失效，暂时禁用
+    weight: 0.9
+
+  # 新增国外AI公司
+  - name: "Cohere Blog"
+    url: "https://cohere.com/blog/rss"
+    enabled: true
+    weight: 0.9
+
+  - name: "Stability AI News"
+    url: "https://stability.ai/news/rss"
+    enabled: true
+    weight: 0.9
+
+  - name: "Replicate Blog"
+    url: "https://replicate.com/blog/rss"
+    enabled: true
+    weight: 0.8
+
+  # 新增国内AI公司
+  - name: "智谱AI"
+    url: "https://www.zhipuai.cn/blog/rss"
+    enabled: true
+    weight: 1.0
+
+  - name: "月之暗面(Kimi)"
+    url: "https://www.moonshot.cn/blog/rss"
+    enabled: true
+    weight: 1.0
+
+  - name: "百川智能"
+    url: "https://www.baichuan-ai.com/blog/rss"
+    enabled: true
+    weight: 0.9
+
+  - name: "阶跃星辰"
+    url: "https://www.stepfun.com/blog/rss"
+    enabled: true
+    weight: 0.9
+
+  - name: "零一万物"
+    url: "https://www.01.ai/blog/rss"
+    enabled: true
+    weight: 0.9
+
+# 技术媒体
+tech_media:
+  - name: "The Verge AI"
+    url: "https://www.theverge.com/ai-artificial-intelligence/rss/index.xml"
+    enabled: false  # RSS失效
+    weight: 0.7
+
+  - name: "VentureBeat AI"
+    url: "https://venturebeat.com/ai/feed/"
+    enabled: false  # RSS失效
+    weight: 0.7
+
+  - name: "TechCrunch AI"
+    url: "https://techcrunch.com/category/artificial-intelligence/feed/"
+    enabled: true
+    weight: 0.6
+
+  - name: "MIT Technology Review"
+    url: "https://www.technologyreview.com/feed/"
+    enabled: true
+    weight: 0.8
+
+  - name: "Ars Technica AI"
+    url: "https://arstechnica.com/tag/ai/feed/"
+    enabled: true
+    weight: 0.7
+
+  # 新增中文AI媒体
+  - name: "机器之心"
+    url: "https://www.jiqizhixin.com/rss"
+    enabled: true
+    weight: 1.0
+
+  - name: "量子位"
+    url: "https://www.qbitai.com/feed"
+    enabled: true
+    weight: 1.0
+
+  - name: "新智元"
+    url: "https://www.aiust.com/rss"
+    enabled: true
+    weight: 0.9
+
+  - name: "AI科技评论"
+    url: "https://www.leiphone.com/category/ai/feed"
+    enabled: true
+    weight: 0.9
+
+# 教程和开发者社区（新增）
+tutorial_communities:
+  # 英文教程网站
+  - name: "Towards Data Science"
+    url: "https://towardsdatascience.com/feed"
+    enabled: true
+    weight: 1.0
+
+  - name: "Real Python"
+    url: "https://realpython.com/atom.xml"
+    enabled: true
+    weight: 0.9
+
+  - name: "freeCodeCamp AI"
+    url: "https://www.freecodecamp.org/news/tag/ai/rss/"
+    enabled: true
+    weight: 0.9
+
+  - name: "TensorFlow Blog"
+    url: "https://blog.tensorflow.org/feeds/posts/default"
+    enabled: true
+    weight: 0.8
+
+  - name: "PyTorch Blog"
+    url: "https://pytorch.org/blog/feed.xml"
+    enabled: true
+    weight: 0.8
+
+  # 开发者社区
+  - name: "Dev.to AI"
+    url: "https://dev.to/feed/tag/ai"
+    enabled: true
+    weight: 0.8
+
+  - name: "Dev.to Machine Learning"
+    url: "https://dev.to/feed/tag/machinelearning"
+    enabled: true
+    weight: 0.8
+
+  - name: "Hashnode AI"
+    url: "https://hashnode.com/n/ai/rss"
+    enabled: true
+    weight: 0.7
+
+  # 工具和产品
+  - name: "Product Hunt AI"
+    url: "https://www.producthunt.com/topics/artificial-intelligence/posts.rss"
+    enabled: true
+    weight: 0.7
+
+  # 技术博客聚合
+  - name: "AI Weekly"
+    url: "http://aiweekly.co/rss"
+    enabled: true
+    weight: 0.8
+
+  - name: "The Batch (DeepLearning.AI)"
+    url: "https://www.deeplearning.ai/the-batch/feed/"
+    enabled: true
+    weight: 0.9
+
+# GitHub配置
+github:
+  enabled: true
+  languages:
+    - "python"
+    - "jupyter-notebook"
+  topics:
+    - "machine-learning"
+    - "artificial-intelligence"
+    - "llm"
+    - "agent"
+    - "deep-learning"
+  min_stars: 10
+  max_results: 20
+
+# 内容时效性（小时）- 从48小时扩展到7天
+max_age_hours: 168  # 7天 = 7 * 24小时
+
+# 每次获取的最大热点数量
+max_hotspots_per_source: 10

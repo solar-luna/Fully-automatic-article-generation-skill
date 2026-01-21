@@ -1,0 +1,22 @@
+# 缓存文件
+cache/
+
+# 输出文件
+output/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# 临时文件
+*.log
+*.tmp
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db

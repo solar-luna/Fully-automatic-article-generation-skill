@@ -1,0 +1,206 @@
+# 内容类型定义和关键词匹配规则
+# 用于选题时评估话题与内容类型的匹配度
+
+# 类型1：AI工具实战类
+tool_deep_dive:
+  name: "单工具深度解析"
+  category: "AI工具实战类"
+  keywords:
+    - "tool"
+    - "release"
+    - "launch"
+    - "new"
+    - "feature"
+    - "工具"
+    - "发布"
+    - "推出"
+    - "功能"
+    - "使用"
+  description: "深度介绍单个AI工具的功能、使用方法和应用场景"
+  target_audience: "AI开发者、产品经理、一人公司创业者"
+
+tool_workflow:
+  name: "工具组合工作流"
+  category: "AI工具实战类"
+  keywords:
+    - "workflow"
+    - "combination"
+    - "integrate"
+    - "stack"
+    - "工作流"
+    - "组合"
+    - "集成"
+    - "搭配"
+    - "多个工具"
+  description: "介绍多个工具组合使用的工作流程"
+  target_audience: "AI开发者、创业者"
+
+# 类型2：创业方法论类
+startup_knowledge:
+  name: "创业必知必会"
+  category: "创业方法论类"
+  keywords:
+    - "startup"
+    - "business"
+    - "strategy"
+    - "method"
+    - "framework"
+    - "创业"
+    - "商业"
+    - "策略"
+    - "方法"
+    - "框架"
+    - "知识"
+  description: "分享创业核心知识和方法论"
+  target_audience: "AI创业者、一人公司、创业预备军"
+
+startup_pitfalls:
+  name: "创业避坑指南"
+  category: "创业方法论类"
+  keywords:
+    - "mistake"
+    - "failure"
+    - "lesson"
+    - "avoid"
+    - "pitfall"
+    - "错误"
+    - "失败"
+    - "教训"
+    - "避免"
+    - "坑"
+  description: "分享创业中的常见错误和避坑经验"
+  target_audience: "AI创业者、一人公司"
+
+# 类型3：效率提升类
+workflow_optimization:
+  name: "工作流优化案例"
+  category: "效率提升类"
+  keywords:
+    - "efficiency"
+    - "productivity"
+    - "optimize"
+    - "improve"
+    - "workflow"
+    - "效率"
+    - "生产力"
+    - "优化"
+    - "提升"
+    - "工作流"
+    - "流程"
+  description: "分享工作流优化的具体案例和方法"
+  target_audience: "AI开发者、创业者、自由职业者"
+
+time_management:
+  name: "时间管理方法"
+  category: "效率提升类"
+  keywords:
+    - "time"
+    - "management"
+    - "schedule"
+    - "planning"
+    - "时间"
+    - "管理"
+    - "安排"
+    - "规划"
+    - "日程"
+  description: "分享时间管理的方法和技巧"
+  target_audience: "一人公司、创业者、自由职业者"
+
+# 类型4：个人成长类
+skill_development:
+  name: "能力提升路径"
+  category: "个人成长类"
+  keywords:
+    - "skill"
+    - "learning"
+    - "development"
+    - "growth"
+    - "ability"
+    - "能力"
+    - "学习"
+    - "提升"
+    - "成长"
+    - "技能"
+  description: "分享个人能力提升的方法和路径"
+  target_audience: "AI开发者、创业者、自由职业者"
+
+mindset_adjustment:
+  name: "心态调整指南"
+  category: "个人成长类"
+  keywords:
+    - "mindset"
+    - "mental"
+    - "psychology"
+    - "attitude"
+    - "心态"
+    - "心理"
+    - "态度"
+    - "情绪"
+    - "压力"
+  description: "分享创业和工作中的心态调整方法"
+  target_audience: "创业者、一人公司"
+
+# 类型5：案例分析类
+success_case:
+  name: "成功案例拆解"
+  category: "案例分析类"
+  keywords:
+    - "success"
+    - "case"
+    - "example"
+    - "achievement"
+    - "成功"
+    - "案例"
+    - "实现"
+    - "达成"
+    - "月入"
+  description: "拆解成功案例，分析关键成功因素"
+  target_audience: "AI创业者、一人公司"
+
+failure_analysis:
+  name: "失败案例分析"
+  category: "案例分析类"
+  keywords:
+    - "failure"
+    - "mistake"
+    - "lesson"
+    - "失败"
+    - "错误"
+    - "教训"
+    - "倒闭"
+    - "问题"
+  description: "分析失败案例，总结经验教训"
+  target_audience: "AI创业者、一人公司"
+
+# 类型6：资源整合类
+tool_collection:
+  name: "工具/资源推荐合集"
+  category: "资源整合类"
+  keywords:
+    - "collection"
+    - "list"
+    - "tools"
+    - "resources"
+    - "recommendation"
+    - "合集"
+    - "清单"
+    - "工具箱"
+    - "推荐"
+    - "资源"
+  description: "整合优质工具和资源，提供实用工具箱"
+  target_audience: "AI开发者、创业者、一人公司"
+
+template_sharing:
+  name: "模板/清单分享"
+  category: "资源整合类"
+  keywords:
+    - "template"
+    - "checklist"
+    - "framework"
+    - "模板"
+    - "清单"
+    - "框架"
+    - "SOP"
+    - "流程"
+  description: "分享实用模板和清单，帮助读者快速上手"
+  target_audience: "AI开发者、创业者、一人公司"

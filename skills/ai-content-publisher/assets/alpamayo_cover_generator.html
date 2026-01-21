@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alpamayo Cover Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans SC', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .subtitle {
+            color: #76b900;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        #canvas-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            background: #000;
+        }
+
+        #canvas-container canvas {
+            display: block;
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .button {
+            background: #76b900;
+            color: #000;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .button:hover {
+            background: #5a8f00;
+            transform: translateY(-2px);
+        }
+
+        .button.secondary {
+            background: #00d4ff;
+        }
+
+        .button.secondary:hover {
+            background: #00a8cc;
+        }
+
+        .info {
+            margin-top: 20px;
+            color: #888;
+            font-size: 12px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Alpamayo Cover Art Generator</h1>
+    <div class="subtitle">Nvidia Autonomous Driving AI Visualization</div>
+
+    <div id="canvas-container"></div>
+
+    <div class="controls">
+        <button class="button" onclick="regenerate()">Regenerate</button>
+        <button class="button secondary" onclick="downloadPNG()">Download PNG</button>
+    </div>
+
+    <div class="info">
+        Neural network visualization with autonomous driving theme<br>
+        Click Regenerate to explore variations
+    </div>
+
+    <script>
+        // ═══════════════════════════════════════════════════════════════════════
+        // ALPAMAYO COVER GENERATOR - Neural Transmission Philosophy
+        // ═══════════════════════════════════════════════════════════════════════
+
+        let nodes = [];
+        let connections = [];
+        let particles = [];
+        let roadLines = [];
+        let seed = Math.floor(Math.random() * 999999);
+
+        // Nvidia brand colors with variations
+        const colors = {
+            nvidiaGreen: '#76b900',
+            nvidiaGreenDark: '#5a8f00',
+            nvidiaBlue: '#00d4ff',
+            nvidiaCyan: '#00ff88',
+            darkBg: '#0a0a0a',
+            road: '#1a1a1a',
+            white: '#ffffff'
+        };
+
+        function setup() {
+            let canvas = createCanvas(1200, 675);
+            canvas.parent('canvas-container');
+            regenerate();
+        }
+
+        function regenerate() {
+            seed = Math.floor(Math.random() * 999999);
+            randomSeed(seed);
+            noiseSeed(seed);
+
+            nodes = [];
+            connections = [];
+            particles = [];
+            roadLines = [];
+
+            initializeNeuralNetwork();
+            initializeRoad();
+        }
+
+        function initializeNeuralNetwork() {
+            // Create neural network nodes in a brain-like pattern
+            let centerX = width * 0.7;
+            let centerY = height * 0.4;
+            let numNodes = 80;
+
+            for (let i = 0; i < numNodes; i++) {
+                let angle = random(TWO_PI);
+                let radius = random(20, 150);
+                let x = centerX + cos(angle) * radius;
+                let y = centerY + sin(angle) * radius * 0.8;
+
+                nodes.push({
+                    x: x,
+                    y: y,
+                    baseX: x,
+                    baseY: y,
+                    size: random(4, 12),
+                    activation: random(0.3, 1),
+                    phase: random(TWO_PI),
+                    layer: floor(random(3))
+                });
+            }
+
+            // Create connections between nearby nodes
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    let d = dist(nodes[i].x, nodes[i].y, nodes[j].x, nodes[j].y);
+                    if (d < 80 && random() > 0.6) {
+                        connections.push({
+                            from: i,
+                            to: j,
+                            strength: random(0.2, 0.8),
+                            signal: 0,
+                            phase: random(TWO_PI)
+                        });
+                    }
+                }
+            }
+
+            // Create signal particles
+            for (let i = 0; i < 15; i++) {
+                particles.push({
+                    connIndex: floor(random(connections.length)),
+                    progress: random(),
+                    speed: random(0.02, 0.05),
+                    size: random(2, 4)
+                });
+            }
+        }
+
+        function initializeRoad() {
+            // Create perspective road lines
+            let vanishingY = height * 0.5;
+            let vanishingX = width * 0.4;
+
+            for (let i = -5; i <= 5; i++) {
+                roadLines.push({
+                    xOffset: i * 80,
+                    vanishingX: vanishingX,
+                    vanishingY: vanishingY
+                });
+            }
+        }
+
+        function draw() {
+            // Dark background with subtle gradient
+            background(10, 10, 15);
+
+            // Draw circuit board pattern
+            drawCircuitPattern();
+
+            // Draw road
+            drawRoad();
+
+            // Draw stylized car silhouette
+            drawCar();
+
+            // Draw neural network connections
+            drawConnections();
+
+            // Draw neural network nodes
+            drawNodes();
+
+            // Draw signal particles
+            drawParticles();
+
+            // Draw title text
+            drawTitle();
+        }
+
+        function drawCircuitPattern() {
+            stroke(30, 60, 40, 30);
+            strokeWeight(1);
+            noFill();
+
+            for (let i = 0; i < 30; i++) {
+                let startX = random(width);
+                let startY = random(height);
+                let endX = startX + random(-50, 50);
+                let endY = startY + random(-50, 50);
+
+                line(startX, startY, endX, endY);
+
+                if (random() > 0.5) {
+                    circle(endX, endY, 3);
+                }
+            }
+        }
+
+        function drawRoad() {
+            let vanishingY = height * 0.5;
+            let vanishingX = width * 0.4;
+
+            // Road surface
+            noStroke();
+            fill(26, 26, 26, 200);
+
+            beginShape();
+            vertex(vanishingX - 60, vanishingY);
+            vertex(vanishingX + 60, vanishingY);
+            vertex(width, height);
+            vertex(0, height);
+            endShape();
+
+            // Road lines
+            stroke(60, 180, 0, 100);
+            strokeWeight(2);
+
+            for (let line of roadLines) {
+                let x1 = vanishingX + line.xOffset * 0.3;
+                let y1 = vanishingY;
+                let x2 = vanishingX + line.xOffset * 4;
+                let y2 = height;
+
+                // Dashed line effect
+                let dashCount = 10;
+                for (let i = 0; i < dashCount; i++) {
+                    let t1 = i / dashCount;
+                    let t2 = (i + 0.5) / dashCount;
+                    if (i % 2 === 0) {
+                        let lx1 = lerp(x1, x2, t1);
+                        let ly1 = lerp(y1, y2, t1);
+                        let lx2 = lerp(x1, x2, t2);
+                        let ly2 = lerp(y1, y2, t2);
+                        line(lx1, ly1, lx2, ly2);
+                    }
+                }
+            }
+        }
+
+        function drawCar() {
+            let carX = width * 0.4;
+            let carY = height * 0.75;
+
+            // Car silhouette - simple futuristic shape
+            fill(20, 20, 25);
+            stroke(40, 40, 50);
+            strokeWeight(2);
+
+            beginShape();
+            vertex(carX - 80, carY);
+            vertex(carX - 70, carY - 30);
+            vertex(carX - 40, carY - 50);
+            vertex(carX + 40, carY - 50);
+            vertex(carX + 70, carY - 30);
+            vertex(carX + 80, carY);
+            endShape(CLOSE);
+
+            // Windshield glow
+            fill(0, 212, 255, 50);
+            noStroke();
+            ellipse(carX, carY - 35, 100, 20);
+        }
+
+        function drawConnections() {
+            noFill();
+            strokeWeight(1);
+
+            for (let conn of connections) {
+                let fromNode = nodes[conn.from];
+                let toNode = nodes[conn.to];
+
+                // Connection color based on signal
+                let signalIntensity = sin(conn.phase + frameCount * 0.02) * 0.5 + 0.5;
+                let alpha = map(signalIntensity, 0, 1, 20, 80);
+
+                // Gradient from green to blue
+                let r = lerp(0, 0, signalIntensity);
+                let g = lerp(185, 212, signalIntensity);
+                let b = lerp(0, 255, signalIntensity);
+
+                stroke(r, g, b, alpha * conn.strength);
+                line(fromNode.x, fromNode.y, toNode.x, toNode.y);
+            }
+        }
+
+        function drawNodes() {
+            noStroke();
+
+            for (let node of nodes) {
+                // Pulsing activation
+                let pulse = sin(node.phase + frameCount * 0.03);
+                let activation = node.activation * (0.7 + pulse * 0.3);
+                let size = node.size * (0.8 + activation * 0.4);
+
+                // Node color based on activation and layer
+                let alpha = map(activation, 0, 1, 100, 255);
+
+                if (node.layer === 0) {
+                    fill(118, 185, 0, alpha); // Green
+                } else if (node.layer === 1) {
+                    fill(0, 212, 255, alpha); // Blue
+                } else {
+                    fill(0, 255, 136, alpha); // Cyan
+                }
+
+                // Outer glow
+                drawingContext.shadowBlur = 15;
+                drawingContext.shadowColor = color(118, 185, 0, 100);
+
+                circle(node.x, node.y, size);
+
+                drawingContext.shadowBlur = 0;
+
+                // Inner bright core
+                fill(255, 255, 255, alpha * 0.8);
+                circle(node.x, node.y, size * 0.3);
+            }
+        }
+
+        function drawParticles() {
+            noStroke();
+
+            for (let p of particles) {
+                let conn = connections[p.connIndex];
+                if (!conn) continue;
+
+                let fromNode = nodes[conn.from];
+                let toNode = nodes[conn.to];
+
+                // Update particle position
+                p.progress += p.speed;
+                if (p.progress > 1) {
+                    p.progress = 0;
+                    p.connIndex = floor(random(connections.length));
+                }
+
+                let x = lerp(fromNode.x, toNode.x, p.progress);
+                let y = lerp(fromNode.y, toNode.y, p.progress);
+
+                // Particle glow
+                drawingContext.shadowBlur = 10;
+                drawingContext.shadowColor = color(255, 255, 255, 150);
+
+                fill(255, 255, 255, 200);
+                circle(x, y, p.size);
+
+                drawingContext.shadowBlur = 0;
+            }
+        }
+
+        function drawTitle() {
+            textAlign(LEFT, TOP);
+            noStroke();
+
+            // Main title
+            fill(255);
+            textSize(42);
+            textStyle(BOLD);
+            text('Alpamayo', 40, 40);
+
+            // Subtitle
+            fill(0, 212, 255);
+            textSize(28);
+            textStyle(NORMAL);
+            text('让自动驾驶学会思考', 40, 90);
+
+            // Tech badge
+            fill(118, 185, 0, 50);
+            stroke(118, 185, 0, 100);
+            strokeWeight(1);
+            rect(40, 120, 140, 30, 4);
+
+            noStroke();
+            fill(255);
+            textSize(12);
+            textAlign(CENTER, CENTER);
+            text('NVIDIA CES 2026', 110, 135);
+        }
+
+        function downloadPNG() {
+            saveCanvas('cover_alpamayo', 'png');
+        }
+
+        function windowResized() {
+            // Keep fixed size for cover art
+        }
+    </script>
+</body>
+</html>

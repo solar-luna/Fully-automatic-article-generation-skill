@@ -1,0 +1,97 @@
+# 文章质量评分规则配置
+
+# 评分阈值
+thresholds:
+  excellent: 85      # 优秀文章
+  good: 70          # 合格文章
+  poor: 70          # 低于此分数需要重新生成
+
+# 评分维度和权重
+dimensions:
+  # 1. 实用性（30分）
+  practicality:
+    weight: 30
+    rules:
+      - name: "有代码示例"
+        keywords: ["```", "code", "python", "javascript", "示例代码"]
+        score: 15
+      - name: "有具体步骤"
+        keywords: ["步骤", "第一步", "第二步", "step 1", "step 2", "首先", "然后"]
+        score: 10
+      - name: "有实际案例"
+        keywords: ["案例", "例如", "比如", "实例", "example", "for instance"]
+        score: 5
+
+  # 2. 深度分析（25分）
+  depth:
+    weight: 25
+    rules:
+      - name: "字数充足"
+        min_words: 2000
+        score: 10
+      - name: "有技术细节"
+        keywords: ["原理", "机制", "算法", "架构", "实现", "architecture", "mechanism"]
+        score: 10
+      - name: "有对比分析"
+        keywords: ["对比", "相比", "区别", "优势", "缺点", "vs", "compared to"]
+        score: 5
+
+  # 3. 结构完整性（20分）
+  structure:
+    weight: 20
+    rules:
+      - name: "有引言"
+        check: "first_paragraph_length"
+        min_length: 50
+        score: 5
+      - name: "有小标题"
+        keywords: ["##", "###"]
+        min_count: 3
+        score: 10
+      - name: "有总结"
+        keywords: ["总结", "结论", "最后", "综上", "conclusion", "summary"]
+        score: 5
+
+  # 4. 可读性（15分）
+  readability:
+    weight: 15
+    rules:
+      - name: "段落适中"
+        check: "average_paragraph_length"
+        max_length: 200
+        score: 10
+      - name: "有列表/表格"
+        keywords: ["- ", "* ", "1. ", "2. ", "|", "表格"]
+        score: 5
+
+  # 5. 原创性（10分）
+  originality:
+    weight: 10
+    rules:
+      - name: "非简单翻译"
+        avoid_keywords: ["根据原文", "原文指出", "according to", "translated from"]
+        score: 5
+      - name: "有独特见解"
+        keywords: ["我认为", "值得注意", "关键在于", "建议", "推荐"]
+        score: 5
+
+# 扣分项
+penalties:
+  - name: "大量空话"
+    keywords: ["随着AI的发展", "在当今时代", "众所周知", "不言而喻"]
+    penalty: -5
+    max_occurrences: 2
+
+  - name: "格式问题"
+    checks: ["broken_links", "invalid_code_blocks"]
+    penalty: -10
+
+  - name: "内容重复"
+    check: "duplicate_paragraphs"
+    penalty: -15
+
+# 重试策略
+retry:
+  max_attempts: 2              # 最多重试2次
+  换话题重试: true             # 第2次重试换话题
+  记录低分文章: true           # 记录到日志用于分析

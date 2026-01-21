@@ -1,0 +1,840 @@
+/* ========================================
+   AI 科技主题 (AI Tech Theme)
+   专为 AI 领域内容设计的现代科技风格
+   ======================================== */
+
+/* ========== 第 1 部分：CSS 变量定义 ========== */
+:root {
+  /* ===== 主色系 ===== */
+  --primary-purple: #7c3aed;      /* 主紫色 - 标题、强调 */
+  --primary-blue: #3b82f6;        /* 主蓝色 - 链接、信息 */
+  --primary-cyan: #06b6d4;        /* 青色 - 技术类提示框 */
+  --primary-teal: #14b8a6;        /* 青绿色 - 代码相关 */
+
+  /* ===== 功能色 ===== */
+  --success-green: #10b981;       /* 成功 - 成功提示、正确示例 */
+  --warning-amber: #f59e0b;       /* 警告 - 注意事项 */
+  --danger-red: #ef4444;          /* 危险 - 错误示例、重要警告 */
+  --info-blue: #3b82f6;           /* 信息 - 普通提示 */
+
+  /* ===== 文字色系 ===== */
+  --text-primary: #1f2937;        /* 主文字 - 深灰 */
+  --text-secondary: #4b5563;      /* 次文字 - 中灰 */
+  --text-tertiary: #6b7280;       /* 辅助文字 - 浅灰 */
+  --text-light: #9ca3af;          /* 淡文字 - 超浅灰 */
+
+  /* ===== 背景色系 ===== */
+  --bg-white: #ffffff;            /* 主背景 */
+  --bg-gray-50: #f9fafb;          /* 浅灰背景 - 卡片、表格偶数行 */
+  --bg-gray-100: #f3f4f6;         /* 中灰背景 - 引用块 */
+  --bg-purple-50: #faf5ff;        /* 淡紫背景 - 重点提示 */
+  --bg-blue-50: #eff6ff;          /* 淡蓝背景 - 信息框 */
+  --bg-cyan-50: #ecfeff;          /* 淡青背景 - 技术框 */
+  --bg-green-50: #f0fdf4;         /* 淡绿背景 - 成功框 */
+  --bg-amber-50: #fffbeb;         /* 淡黄背景 - 警告框 */
+  --bg-red-50: #fef2f2;           /* 淡红背景 - 危险框 */
+
+  /* ===== 代码块色系（Atom One Dark） ===== */
+  --code-bg: #282c34;             /* 代码块背景 */
+  --code-text: #abb2bf;           /* 代码文字 */
+  --code-keyword: #c678dd;        /* 关键字 - 紫色 */
+  --code-function: #61afef;       /* 函数 - 蓝色 */
+  --code-string: #98c379;         /* 字符串 - 绿色 */
+  --code-number: #d19a66;         /* 数字 - 橙色 */
+  --code-comment: #5c6370;        /* 注释 - 灰色 */
+  --code-variable: #e06c75;       /* 变量 - 红色 */
+  --code-builtin: #e6c07b;        /* 内置函数 - 黄色 */
+
+  /* ===== 边框色系 ===== */
+  --border-light: #e5e7eb;        /* 浅边框 */
+  --border-medium: #d1d5db;       /* 中边框 */
+  --border-dark: #9ca3af;         /* 深边框 */
+
+  /* ===== 阴影色系 ===== */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+
+  /* ===== 间距系统 ===== */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* ===== 圆角系统 ===== */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+}
+
+/* ========== 第 2 部分：基础样式 ========== */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text-primary);
+  background: var(--bg-white);
+  padding: 20px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+p {
+  margin: 16px 0;
+  line-height: 1.8;
+  color: var(--text-primary);
+}
+
+strong {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+em {
+  font-style: italic;
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  border-bottom: 1px solid var(--primary-blue);
+  transition: all 0.2s;
+}
+
+a:hover {
+  color: var(--primary-purple);
+  border-bottom-color: var(--primary-purple);
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background: #7c3aed;  /* 紫色（微信不支持渐变） */
+  margin: 40px 0;
+  opacity: 0.5;
+}
+
+/* ========== 第 3 部分：标题系统 ========== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.4;
+  margin-top: 32px;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 32px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid #7c3aed;  /* 紫色边框（微信不支持border-image） */
+}
+
+h2 {
+  font-size: 28px;
+  padding-left: 16px;
+  border-left: 4px solid #7c3aed;  /* 紫色边框（微信不支持border-image） */
+  background: #faf5ff;  /* 淡紫色（微信不支持渐变） */
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+h3 {
+  font-size: 24px;
+  position: relative;
+  padding-left: 20px;
+}
+
+h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 20px;
+  background: #7c3aed;  /* 紫色（微信不支持渐变） */
+  border-radius: var(--radius-sm);
+}
+
+h4 {
+  font-size: 20px;
+  color: var(--primary-purple);
+}
+
+h5 {
+  font-size: 18px;
+  color: var(--text-secondary);
+}
+
+h6 {
+  font-size: 16px;
+  color: var(--text-tertiary);
+  font-weight: 600;
+}
+
+/* ========== 第 4 部分：代码块系统 ========== */
+code {
+  background: #f5f5f5;
+  color: #e83e8c;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  font-size: 0.9em;
+  font-weight: 500;
+}
+
+pre {
+  background: #282c34;
+  color: #abb2bf;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 20px 0;
+  position: relative;
+  line-height: 1.6;
+}
+
+pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: var(--code-text);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* 代码块语言标签 */
+pre[data-lang]::before {
+  content: attr(data-lang);
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #21252b;
+  color: var(--code-comment);
+  padding: 4px 12px;
+  font-size: 12px;
+  text-transform: uppercase;
+  border-bottom-left-radius: var(--radius-md);
+  font-family: "SFMono-Regular", Consolas, monospace;
+}
+
+/* 代码块容器 */
+.code-block {
+  position: relative;
+  margin: 24px 0;
+}
+
+/* 代码标题 */
+.code-title {
+  background: #21252b;
+  color: var(--code-text);
+  padding: 8px 16px;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  font-size: 13px;
+  font-family: "SFMono-Regular", Consolas, monospace;
+  border-bottom: 1px solid #181a1f;
+}
+
+.code-title + pre {
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  margin-top: 0;
+}
+
+/* Atom One Dark 语法高亮 */
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-section,
+.hljs-link {
+  color: var(--code-keyword);
+}
+
+.hljs-function,
+.hljs-title,
+.hljs-class,
+.hljs-type {
+  color: var(--code-function);
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: var(--code-string);
+}
+
+.hljs-number,
+.hljs-regexp,
+.hljs-symbol {
+  color: var(--code-number);
+}
+
+.hljs-comment,
+.hljs-quote,
+.hljs-meta {
+  color: var(--code-comment);
+  font-style: italic;
+}
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-attribute,
+.hljs-tag {
+  color: var(--code-variable);
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: var(--code-builtin);
+}
+
+/* ========== 第 5 部分：表格系统 ========== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 15px;
+  overflow-x: auto;
+  display: block;
+}
+
+table thead {
+  background: #7c3aed;  /* 纯色紫色背景（微信不支持渐变） */
+  color: #ffffff;
+}
+
+table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  border: 1px solid #dee2e6;
+}
+
+table td {
+  padding: 12px 16px;
+  border: 1px solid #dee2e6;
+}
+
+table tbody tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+table tbody tr:hover {
+  background: #f1f3f5;
+}
+
+/* 模型对比表格 */
+table.model-comparison {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 24px 0;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+table.model-comparison thead {
+  background: #7c3aed;  /* 纯色紫色背景（微信不支持渐变） */
+  color: #ffffff;
+}
+
+table.model-comparison th {
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  border: none;
+}
+
+table.model-comparison td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-light);
+  border-right: 1px solid var(--border-light);
+}
+
+table.model-comparison td:last-child {
+  border-right: none;
+}
+
+table.model-comparison tbody tr:last-child td {
+  border-bottom: none;
+}
+
+table.model-comparison tbody tr:nth-child(even) {
+  background: var(--bg-gray-50);
+}
+
+table.model-comparison tbody tr:hover {
+  background: var(--bg-blue-50);
+  transition: background 0.2s;
+}
+
+table.model-comparison .best-value {
+  color: var(--success-green);
+  font-weight: 600;
+}
+
+table.model-comparison td:first-child {
+  font-weight: 600;
+  color: var(--primary-purple);
+}
+
+/* 紧凑表格 */
+table.table-compact th,
+table.table-compact td {
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
+/* ========== 第 6 部分：列表系统 ========== */
+ul {
+  margin: 16px 0;
+  padding-left: 24px;
+}
+
+ul li {
+  margin: 8px 0;
+  line-height: 1.8;
+  position: relative;
+}
+
+ul li::marker {
+  color: var(--primary-purple);
+  font-weight: bold;
+}
+
+ol {
+  margin: 16px 0;
+  padding-left: 24px;
+  counter-reset: item;
+}
+
+ol li {
+  margin: 8px 0;
+  line-height: 1.8;
+  position: relative;
+}
+
+ol li::marker {
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+/* 任务列表 */
+ul.task-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.task-list li {
+  position: relative;
+  padding-left: 32px;
+  margin: 12px 0;
+}
+
+ul.task-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary-purple);
+  border-radius: var(--radius-sm);
+  background: var(--bg-white);
+}
+
+ul.task-list li.checked::before {
+  background: var(--primary-purple);
+  border-color: var(--primary-purple);
+}
+
+ul.task-list li.checked::after {
+  content: "✓";
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+ul.task-list li.checked {
+  color: var(--text-tertiary);
+  text-decoration: line-through;
+}
+
+/* 步骤列表 */
+ol.steps {
+  counter-reset: step;
+  list-style: none;
+  padding-left: 0;
+}
+
+ol.steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 48px;
+  margin: 24px 0;
+}
+
+ol.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  background: #7c3aed;  /* 紫色（微信不支持渐变） */
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 32px;
+  text-align: center;
+}
+
+/* ========== 第 7 部分：引用块 ========== */
+blockquote {
+  margin: 24px 0;
+  padding: 20px 24px;
+  background: var(--bg-gray-100);
+  border-left: 4px solid var(--primary-purple);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  position: relative;
+}
+
+blockquote p {
+  margin: 0;
+  font-style: italic;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+/* 金句引用 */
+blockquote.quote-highlight {
+  background: #faf5ff;  /* 淡紫色（微信不支持渐变） */
+  border-left: 4px solid var(--primary-purple);
+  font-size: 18px;
+  text-align: center;
+  padding: 32px 24px;
+}
+
+blockquote.quote-highlight p {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* ========== 第 8 部分：组件库 ========== */
+
+/* 信息卡片/提示框 */
+.alert {
+  padding: 16px 20px;
+  margin: 20px 0;
+  border-radius: var(--radius-md);
+  border-left: 4px solid;
+  position: relative;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.alert-info {
+  background: var(--bg-blue-50);
+  border-color: var(--info-blue);
+  color: var(--text-primary);
+}
+
+.alert-success {
+  background: var(--bg-green-50);
+  border-color: var(--success-green);
+  color: var(--text-primary);
+}
+
+.alert-warning {
+  background: var(--bg-amber-50);
+  border-color: var(--warning-amber);
+  color: var(--text-primary);
+}
+
+.alert-danger {
+  background: var(--bg-red-50);
+  border-color: var(--danger-red);
+  color: var(--text-primary);
+}
+
+.alert-tech {
+  background: var(--bg-cyan-50);
+  border-color: var(--primary-cyan);
+  color: var(--text-primary);
+}
+
+/* 徽章/标签 */
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  margin: 0 4px;
+  vertical-align: middle;
+}
+
+.badge-primary {
+  background: var(--primary-purple);
+  color: #ffffff;
+}
+
+.badge-info {
+  background: var(--info-blue);
+  color: #ffffff;
+}
+
+.badge-success {
+  background: var(--success-green);
+  color: #ffffff;
+}
+
+.badge-warning {
+  background: var(--warning-amber);
+  color: #1f2937;
+}
+
+.badge-new {
+  background: #7c3aed;  /* 紫色（微信不支持渐变） */
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+
+.badge-ai {
+  background: var(--primary-cyan);
+  color: #ffffff;
+}
+
+/* Prompt 示例框 */
+.prompt-example {
+  margin: 24px 0;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.prompt-input {
+  background: var(--bg-gray-50);
+  padding: 16px 20px;
+  border-bottom: 2px solid var(--primary-purple);
+}
+
+.prompt-input-content {
+  font-family: "SFMono-Regular", Consolas, monospace;
+  font-size: 14px;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.prompt-output {
+  background: var(--bg-white);
+  padding: 16px 20px;
+}
+
+.prompt-output-content {
+  font-size: 15px;
+  color: var(--text-primary);
+  line-height: 1.8;
+}
+
+/* API 调用示例 */
+.api-example {
+  margin: 24px 0;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.api-header {
+  background: #06b6d4;  /* 青色（微信不支持渐变） */
+  color: #ffffff;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-family: "SFMono-Regular", Consolas, monospace;
+}
+
+.api-method {
+  display: inline-block;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  margin-right: 12px;
+}
+
+.api-request {
+  background: var(--code-bg);
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.api-request-label {
+  font-size: 12px;
+  color: var(--code-comment);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.api-request code {
+  background: transparent;
+  color: var(--code-text);
+  font-size: 13px;
+}
+
+.api-response {
+  background: var(--bg-white);
+  padding: 16px 20px;
+}
+
+.api-response-label {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+/* 性能指标卡片 */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.metric-card {
+  background: var(--bg-gray-50);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  text-align: center;
+}
+
+.metric-label {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary-purple);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.metric-unit {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.metric-progress {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-gray-100);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: 12px;
+}
+
+.metric-progress-bar {
+  height: 100%;
+  background: #7c3aed;  /* 紫色（微信不支持渐变） */
+  border-radius: var(--radius-full);
+  transition: width 0.3s ease;
+}
+
+/* ========== 第 9 部分：图片样式 ========== */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 24px auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+figure {
+  margin: 24px 0;
+  text-align: center;
+}
+
+figure img {
+  margin-bottom: 12px;
+}
+
+figcaption {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  font-style: italic;
+}
+
+/* ========== 第 10 部分：响应式设计 ========== */
+@media (max-width: 768px) {
+  body {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 18px;
+  }
+
+  h5, h6 {
+    font-size: 16px;
+  }
+
+  table {
+    font-size: 14px;
+  }
+
+  table th,
+  table td {
+    padding: 10px 12px;
+  }
+
+  pre {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  code {
+    font-size: 13px;
+  }
+
+  .alert {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .metric-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metric-value {
+    font-size: 28px;
+  }
+}
